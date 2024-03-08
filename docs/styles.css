@@ -1,0 +1,74 @@
+/* CSS 样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tag {
+    margin: 5px;
+    padding: 8px 15px;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.documents {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.document-list {
+    width: 30%;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.document-item {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+.document-item:hover {
+    background-color: #ddd;
+}
+
+.preview {
+    width: 65%;
+    padding-left: 20px;
+}
+
+.preview iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+}
