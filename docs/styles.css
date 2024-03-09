@@ -12,21 +12,63 @@ body {
 }
 
 header {
-    background-color: #2c3e50;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+    /* 去掉网页标题 */
+    display: none;
 }
 
-h1 {
-    margin: 0;
-}
-
-.tags {
+.tags-drawer  {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    flex: 1 1 auto;
+    top: 0;
+    left: 0;
+    word-wrap: break-word;
+    background-color: #7c595978;
+    background-clip: border-box;
+    border-radius: .25rem;
+    width: 35%;
+    height: 50%;
+    border-width: 0;
+    box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
+    padding: 4px 4px 8px 4px;
+    z-index: 300;
+}
+
+.tags{
+    overflow-y: auto; /* 添加垂直滚动条 */
+    max-height: 100%; /* 设置容器最大高度 */
+    display: flex;
+    flex-wrap: wrap; /* 允许标签换行 */
+    justify-content: center; /* 水平居中 */
     margin-top: 20px;
+}
+
+.show {
+    position: fixed;
+    z-index: 301;
+    top: 0;
+    left: 175px;
+    transition: all 1.2s;
+    color: chocolate;
+}
+.show label{
+    height: 1em;
+}
+#demo_show_check:checked ~ .show {
+    left:0;
+    transform: rotateY(180deg);
+}
+#demo_show_check:checked ~ .tags-drawer {
+    translate: -200px;
+    visibility: hidden;
+    opacity: 0;
+}
+#demo_show_check {
+    display: none;
+}
+.tags-drawer {
+    transition: all 1.2s;
 }
 
 .tag {
@@ -36,6 +78,22 @@ h1 {
     color: #fff;
     cursor: pointer;
     border-radius: 20px;
+    border: 1px solid transparent; /* 添加边框 */
+    transition: background-color 0.3s, border-color 0.3s; /* 添加过渡效果 */
+    display: inline;
+}
+
+div.title{
+    color: #0d0d0d;
+}
+
+.tag:hover {
+    background-color: #2980b9; /* 鼠标悬停时的背景色 */
+}
+
+.tag.selected {
+    background-color: #2980b9; /* 选中时的背景色 */
+    border-color: #fff; /* 选中时的边框颜色 */
 }
 
 .documents {
@@ -45,8 +103,8 @@ h1 {
 }
 
 .document-list {
-    width: 30%;
-    max-height: 600px;
+    width: 35%;
+    max-height: 1000px;
     overflow-y: auto;
 }
 
@@ -69,6 +127,6 @@ h1 {
 
 .preview iframe {
     width: 100%;
-    height: 600px;
+    height: 1000px;
     border: none;
 }
