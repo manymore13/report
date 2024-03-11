@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleTagsDrawerBtn = document.getElementById('toggleTagsDrawer');
     const reportIndustry = document.getElementById('report_industry');
 
-    const host = "https://raw.githubusercontent.com/manymore13/report/main/eastmoney/";
+    const host = "https://cdn.jsdelivr.net/gh/manymore13/report/eastmoney/";
 
     // 模拟从远程获取标签
     const tags = [
