@@ -7,8 +7,6 @@
 
 扫码查看研报，用pc，平板查看效果更佳
 
-![img](https://github.com/manymore13/report/blob/main/docs/img/report.png?raw=true)
-
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report.png)
 
 
