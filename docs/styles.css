@@ -8,7 +8,7 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
 
 header {
@@ -16,75 +16,35 @@ header {
     display: none;
 }
 
-.tags-drawer  {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    flex: 1 1 auto;
-    top: 0;
-    left: 0;
-    word-wrap: break-word;
-    background-color: #7c595978;
-    background-clip: border-box;
-    border-radius: .25rem;
-    width: 35%;
-    height: 50%;
-    border-width: 0;
-    box-shadow: 0 2px 6px 0 rgba(114, 124, 245, .5);
-    padding: 4px 4px 8px 4px;
-    z-index: 300;
-}
-
-.tags{
-    overflow-y: auto; /* 添加垂直滚动条 */
+#tags{
     max-height: 100%; /* 设置容器最大高度 */
     display: flex;
     flex-wrap: wrap; /* 允许标签换行 */
     justify-content: center; /* 水平居中 */
-    margin-top: 20px;
+    margin-top: 0px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
 }
 
-.show {
-    position: fixed;
-    z-index: 301;
-    top: 0;
-    left: 175px;
-    transition: all 1.2s;
-    color: chocolate;
-}
-.show label{
-    height: 1em;
-}
-#demo_show_check:checked ~ .show {
-    left:0;
-    transform: rotateY(180deg);
-}
-#demo_show_check:checked ~ .tags-drawer {
-    translate: -200px;
-    visibility: hidden;
-    opacity: 0;
-}
-#demo_show_check {
-    display: none;
-}
-.tags-drawer {
-    transition: all 1.2s;
-}
-
-.tag {
+.tag,date,author{
     margin: 5px;
-    padding: 8px 15px;
+    padding: 5px;
     background-color: #3498db;
     color: #fff;
+    font-size: small;
     cursor: pointer;
-    border-radius: 20px;
+    border-radius: 5px;
     border: 1px solid transparent; /* 添加边框 */
     transition: background-color 0.3s, border-color 0.3s; /* 添加过渡效果 */
     display: inline;
 }
 
-div.title{
+div.document-item > div.title{
     color: #0d0d0d;
+    font-size: medium;
+    display：inline-block;
+    font-family: auto;
 }
 
 .tag:hover {
@@ -114,6 +74,7 @@ div.title{
     background-color: #f1f1f1;
     border-bottom: 1px solid #ddd;
     transition: background-color 0.3s;
+    display：inline-block;
 }
 
 .document-item:hover {

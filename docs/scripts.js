@@ -1,6 +1,6 @@
 // scripts.js
 document.addEventListener('DOMContentLoaded', () => {
-    const tagsContainer = document.querySelector('.tags');
+    const tagsContainer = document.getElementById('tags');
     const documentListContainer = document.querySelector('.document-list');
     const previewContainer = document.querySelector('.preview');
     const tagsDrawer = document.querySelector('.tags-drawer');
@@ -108,15 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 切换标签抽屉的显示状态
-    toggleTagsDrawerBtn.addEventListener('click', () => {
-        tagsDrawer.classList.toggle('drawer-open');
-        // 切换按钮箭头方向
-        toggleTagsDrawerBtn.classList.toggle('open');
-        // 切换标签显示状态
-        tagsContainer.classList.toggle('show');
-    });
-
     // 从远程获取文档列表
     function fetchDocumentList(tag) {
         fetch(tag.csv_url)
@@ -154,13 +145,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 渲染文档列表
     function renderDocumentList(reports) {
         documentListContainer.innerHTML = '';
-        reports.forEach(report => {
+        reports.forEach((report,index) => {
             const documentItem = document.createElement('div');
             documentItem.classList.add('document-item');
             documentItem.textContent = report.title;
             documentItem.innerHTML = '<div class="title">' + report.title + '</div>' +
-            '<div>日期: ' + report.pubDate + '</div>' +
-            '<div>机构: ' + report.orgName + '</div>';
+            '<author>' + report.orgName + '</author>'+
+            '<date>' + report.pubDate + '</date>';
             documentItem.addEventListener('click', () => {
                 fetchDocumentPreview(report.pdfUrl);
                 // 取消其他文档项的选中状态
@@ -169,11 +160,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 documentItem.classList.add('selected');
             });
             documentListContainer.appendChild(documentItem);
+            if ( index === 0 ){
+                documentItem.click();
+            }
         });
     }
 
     // 获取并渲染 PDF 预览
     function fetchDocumentPreview(pdfUrl) {
         previewContainer.innerHTML = `<iframe src="${pdfUrl}" width="100%" height="600px"></iframe>`;
+    }
+
+    const toggleButton = document.getElementById('toggleButton');
+    toggleButton.addEventListener('click',function() {
+          // 切换内容的高度以实现动画效果
+          if (tagsContainer.classList.contains('expanded')) {
+              tagsContainer.style.maxHeight = '0';
+              tagsContainer.classList.remove('expanded');
+              toggleButton.textContent = '展开';
+          } else {
+              tagsContainer.style.maxHeight = tagsContainer.scrollHeight + 'px';
+              tagsContainer.classList.add('expanded');
+              toggleButton.textContent = '收缩';
+          }
+    });
+
+    function toggleTagContent() {
+      var content = document.getElementById("tags");
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
     }
 });
