@@ -9,6 +9,11 @@
 
 ![img](https://github.com/manymore13/report/blob/main/docs/img/report.png?raw=true)
 
+![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report.png)
+
+
+
+
 | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | [专业服务](https://github.com/manymore13/report/blob/main/eastmoney/专业服务.csv)   | [专用设备](https://github.com/manymore13/report/blob/main/eastmoney/专用设备.csv)   | [中药](https://github.com/manymore13/report/blob/main/eastmoney/中药.csv)       | [互联网服务](https://github.com/manymore13/report/blob/main/eastmoney/互联网服务.csv) | [仪器仪表](https://github.com/manymore13/report/blob/main/eastmoney/仪器仪表.csv)   |
