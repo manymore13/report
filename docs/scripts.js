@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const previewContainer = document.querySelector('.preview');
     const tagsDrawer = document.querySelector('.tags-drawer');
     const toggleTagsDrawerBtn = document.getElementById('toggleTagsDrawer');
+    const reportIndustry = document.getElementById('report_industry');
 
     const host = "https://raw.githubusercontent.com/manymore13/report/main/eastmoney/";
 
@@ -99,6 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.tag').forEach(tag => tag.classList.remove('selected'));
             // 当前标签设置为选中状态
             tagElement.classList.add('selected');
+
+            reportIndustry.textContent = tag.name
         });
         tagsContainer.appendChild(tagElement);
 
@@ -149,9 +152,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const documentItem = document.createElement('div');
             documentItem.classList.add('document-item');
             documentItem.textContent = report.title;
-            documentItem.innerHTML = '<div class="title">' + report.title + '</div>' +
+            documentItem.innerHTML = '<div class="title">' + report.title  +
             '<author>' + report.orgName + '</author>'+
-            '<date>' + report.pubDate + '</date>';
+            '<date>' + report.pubDate + '</date>'+
+            '</div>';
             documentItem.addEventListener('click', () => {
                 fetchDocumentPreview(report.pdfUrl);
                 // 取消其他文档项的选中状态

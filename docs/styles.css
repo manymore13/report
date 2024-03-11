@@ -16,6 +16,10 @@ header {
     display: none;
 }
 
+h2#report_industry{
+   display: inline;
+   text-align: center; /* 水平居中 */
+}
 #tags{
     max-height: 100%; /* 设置容器最大高度 */
     display: flex;
@@ -40,11 +44,18 @@ header {
     display: inline;
 }
 
+date,author{
+    background-color: #484a72;
+    padding: 2px;
+    border-radius: 2px
+    font-size: 14px
+}
+
 div.document-item > div.title{
     color: #0d0d0d;
     font-size: medium;
-    display：inline-block;
     font-family: auto;
+    display: inline;
 }
 
 .tag:hover {
@@ -77,13 +88,17 @@ div.document-item > div.title{
     display：inline-block;
 }
 
+.document-item.selected{
+    background-color: #ddd;
+}
+
 .document-item:hover {
     background-color: #ddd;
 }
 
 .preview {
     width: 65%;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
 .preview iframe {
