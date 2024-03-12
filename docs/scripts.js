@@ -170,9 +170,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const pdfViewPath = "pdfjs/web/viewer.html?file="
     // 获取并渲染 PDF 预览
     function fetchDocumentPreview(pdfUrl) {
-        previewContainer.innerHTML = `<iframe src="${pdfUrl}" width="100%" height="600px"></iframe>`;
+        previewContainer.innerHTML = `<iframe src="${pdfViewPath + pdfUrl}" width="100%" height="600px"></iframe>`;
     }
 
     const toggleButton = document.getElementById('toggleButton');

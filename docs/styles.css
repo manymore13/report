@@ -15,7 +15,9 @@ header {
     /* 去掉网页标题 */
     display: none;
 }
-
+#top{
+    align-items: center;
+}
 h2#report_industry{
    display: inline;
    text-align: center; /* 水平居中 */
@@ -70,7 +72,7 @@ div.document-item > div.title{
 .documents {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .document-list {
