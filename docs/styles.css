@@ -100,7 +100,7 @@ div.document-item > div.title{
 
 .preview {
     width: 65%;
-    padding-left: 10px;
+    padding-left: 0px;
 }
 
 .preview iframe {

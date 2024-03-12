@@ -162,9 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelectorAll('.document-item').forEach(item => item.classList.remove('selected'));
                 // 当前文档项设置为选中状态
                 documentItem.classList.add('selected');
+
+                if(isScreenOrientation()){
+                    togglePreview(true)
+                }
             });
             documentListContainer.appendChild(documentItem);
-            if ( index === 0 ){
+            if ( index === 0 && !isScreenOrientation()){
                 documentItem.click();
             }
         });
@@ -189,6 +193,22 @@ document.addEventListener('DOMContentLoaded', () => {
               toggleButton.textContent = '收缩';
           }
     });
+
+    function togglePreview(show){
+        if(show){
+           previewContainer.style.display = 'block'
+           documentListContainer.style.display= 'none'
+        }else{
+           previewContainer.style.display= 'none'
+           documentListContainer.style.display= 'block'
+        }
+    }
+
+    function isScreenOrientation() {
+         let screenWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+         let screenHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+         return screenWidth < screenHeight ;
+    }
 
     function toggleTagContent() {
       var content = document.getElementById("tags");
