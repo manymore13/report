@@ -14,10 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         head.appendChild(link);
 
         // 监听返回键事件
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Backspace") {
-                togglePreview(false);
-                window.history.back()
+        window.addEventListener("popstate", function(e) {
+            if(previewContainer.style.display = 'block'){
+                togglePreview(false)
             }
         });
     }

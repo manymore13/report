@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 documentItem.classList.add('selected');
 
                 if(isScreenOrientation()){
-                    window.history.forward()
+                    window.history.pushState("", "", "");
                     togglePreview(true)
                 }
             });
