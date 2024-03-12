@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('keydown', function(event) {
             if (event.key === "Backspace") {
                 togglePreview(false);
+                window.history.back()
             }
         });
     }
