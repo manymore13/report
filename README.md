@@ -3,9 +3,7 @@
 ## [东方财富研究报告](https://manymore13.github.io/report/)
 >每天定时12点更新,数据从2024-01-01开始拉取,每天累计,下方链接是最近30天的研报
 
-[东方财富研究报告](https://manymore13.github.io/report/)
-
-[今日更新的研报](https://github.com/manymore13/report/blob/main/eastmoney/today.md)
+[查看当天研报](https://github.com/manymore13/report/blob/main/eastmoney/today.md)
 
 ## 分类查询研报
 
