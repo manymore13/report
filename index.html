@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>行业研报</title>
+<link rel="stylesheet" href="docs/styles.css">
+<script src="docs/mobile/scripts.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div id = "top">
+        <button id= "toggleButton">展开/收缩</button>
+        <h2 id = "report_industry"></h2>
+    </div>
+
+    <div id="tags">
+        <!-- 标签部分 -->
+        <!-- 这里的标签可以从后端动态获取 -->
+        <!-- 示例标签 -->
+        <!-- <div class="tag">标签1</div>-->
+        <!-- <div class="tag">标签2</div>-->
+        <!-- 添加更多标签 -->
+    </div>
+
+    <div class="documents">
+        <div class="document-list">
+            <!-- 文档列表 -->
+            <!-- 文档列表会在点击标签后从远程获取并渲染 -->
+        </div>
+        <div class="preview">
+            <!-- 文档预览 -->
+            <!-- 文档预览会在点击文档列表项后从远程获取并渲染 -->
+        </div>
+    </div>
+</div>
+
+<script src="docs/scripts.js"></script>
+
+</body>
+</html>
