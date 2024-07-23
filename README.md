@@ -3,7 +3,9 @@
 ## [东方财富研究报告](https://manymore13.github.io/report/)
 >每天定时12点更新,数据从2024-01-01开始拉取,每天累计,下方链接是最近30天的研报
 
-[查看当天研报](https://github.com/manymore13/report/blob/main/eastmoney/today.md)
+欢迎关注微信公众号，查看今日研报  
+![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/gzh.jpg)
+
 
 ## 分类查询研报
 
@@ -26,14 +28,13 @@
 | [通用设备](https://github.com/manymore13/report/blob/main/eastmoney/通用设备.csv)   | [造纸印刷](https://github.com/manymore13/report/blob/main/eastmoney/造纸印刷.csv)   | [酿酒行业](https://github.com/manymore13/report/blob/main/eastmoney/酿酒行业.csv)   | [采掘行业](https://github.com/manymore13/report/blob/main/eastmoney/采掘行业.csv)   | [钢铁行业](https://github.com/manymore13/report/blob/main/eastmoney/钢铁行业.csv)   |
 | [铁路公路](https://github.com/manymore13/report/blob/main/eastmoney/铁路公路.csv)   | [银行](https://github.com/manymore13/report/blob/main/eastmoney/银行.csv)       | [非金属材料](https://github.com/manymore13/report/blob/main/eastmoney/非金属材料.csv) | [风电设备](https://github.com/manymore13/report/blob/main/eastmoney/风电设备.csv)   | [食品饮料](https://github.com/manymore13/report/blob/main/eastmoney/食品饮料.csv)   |
 
-欢迎关注微信公众号，查看今日研报  
-![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/gzh.jpg)
 
-扫码查看研报，用pc，平板查看效果更佳
 
-![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report.png)
 
-***PC端***
+
+
+***PC端***  
+[各行业pc端查看](https://www.52wajueji.cn/report)  
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report1.png)
 
 有会js开发，ui设计的同学欢迎改写上面的网站，网站源码在当前仓库的***docs***目录里,欢迎pull
