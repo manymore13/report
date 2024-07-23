@@ -27,7 +27,7 @@
 | [铁路公路](https://github.com/manymore13/report/blob/main/eastmoney/铁路公路.csv)   | [银行](https://github.com/manymore13/report/blob/main/eastmoney/银行.csv)       | [非金属材料](https://github.com/manymore13/report/blob/main/eastmoney/非金属材料.csv) | [风电设备](https://github.com/manymore13/report/blob/main/eastmoney/风电设备.csv)   | [食品饮料](https://github.com/manymore13/report/blob/main/eastmoney/食品饮料.csv)   |
 
 欢迎关注微信公众号，查看今日研报  
-![img](https://github.com/manymore13/report/blob/main/docs/img/gzh.jpg?raw=true)
+![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/gzh.jpg)
 
 扫码查看研报，用pc，平板查看效果更佳
 
