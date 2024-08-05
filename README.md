@@ -1,13 +1,17 @@
 # 研报
 
-## [东方财富研究报告](https://manymore13.github.io/report/)
+## 东方财富研究报告
 >每天定时12点更新,数据从2024-01-01开始拉取,每天累计,下方链接是最近30天的研报
 
 欢迎关注微信公众号，查看今日研报  
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/gzh.jpg)
 
+## 按时间段阅读研报
 
-## 分类查询研报
+[日报](eastmoney/month.md) , [最近一周研报](eastmoney/week.md)，[最近一个月研报](eastmoney/month.md) 
+
+
+## 分类阅读研报
 
 
 | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        |
