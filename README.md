@@ -1,18 +1,22 @@
 # 研报
 
 ## 东方财富研究报告
->每天定时12点更新,数据从2024-01-01开始拉取,每天累计,下方链接是最近30天的研报
+>每天定时12点更新，数据从2024-01-01开始拉取，每天累计更新
 
-欢迎关注微信公众号，查看今日研报  
+### 公众号查看研报
+欢迎关注微信公众号，不定期分享研报，公号菜单支持查看日报，周报，月报，
+有什么问题或建议可以在公号上直接发消息给我。
+
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/gzh.jpg)
 
-## 按时间段阅读研报
+### 浏览器上查看研报
+
+1. 按时间段阅读研报
 
 [日报](eastmoney/month.md) , [最近一周研报](eastmoney/week.md)，[最近一个月研报](eastmoney/month.md) 
 
 
-## 分类阅读研报
-
+2. 行业分类阅读研报
 
 | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        | 行业名称                                                                        |
 | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -33,11 +37,8 @@
 | [铁路公路](https://github.com/manymore13/report/blob/main/eastmoney/铁路公路.csv)   | [银行](https://github.com/manymore13/report/blob/main/eastmoney/银行.csv)       | [非金属材料](https://github.com/manymore13/report/blob/main/eastmoney/非金属材料.csv) | [风电设备](https://github.com/manymore13/report/blob/main/eastmoney/风电设备.csv)   | [食品饮料](https://github.com/manymore13/report/blob/main/eastmoney/食品饮料.csv)   |
 
 
-
-
-
-
-***PC端***  
+3. 小破站
+   
 [各行业pc端查看](https://www.52wajueji.cn/report)  
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report1.png)
 
