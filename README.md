@@ -16,7 +16,7 @@
 
 **1. 按时间段阅读研报**
 
-[日报](eastmoney/month.md) , [最近一周研报](eastmoney/week.md)，[最近一个月研报](eastmoney/month.md) 
+[日报](eastmoney/today.md) , [周报](eastmoney/week.md)，[月报](eastmoney/month.md) 
 
 
 **2. 行业分类阅读研报**
