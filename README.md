@@ -42,7 +42,7 @@
 
 **3. 小破站**
 
-[查看](https://www.52wajueji.cn/report)
+[查看](https://manymore13.github.io/report/)
    
 ![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report1.png)
 
