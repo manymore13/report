@@ -44,7 +44,6 @@
 
 [查看](https://manymore13.github.io/report/)
    
-![img](https://cdn.jsdelivr.net/gh/manymore13/report/docs/img/report1.png)
+![img](./preview.png)
 
-有会js开发，ui设计的同学欢迎改写上面的网站，网站源码在当前仓库的***docs***目录里,欢迎pull
 
