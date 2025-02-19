@@ -1,1 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能研报分析平台</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --background-color: #f5f7fa;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--background-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        select {
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        select:hover {
+            border-color: var(--primary-color);
+        }
+
+        .report-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .report-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+            break-inside: avoid;
+        }
+
+        .report-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .load-more {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            cursor: pointer;
+            display: none;
+        }
+
+        .date-tag {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: #e3f2fd;
+            color: var(--primary-color);
+            font-size: 12px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+            }
+            
+            .search-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>行业研究报告库</h1>
+        
+        <div class="filters">
+            <input type="text" class="search-box" placeholder="输入关键词（支持空格分隔多个词）" id="searchInput">
+            <select id="industrySelect">
+                <option value="">全部行业</option>
+            </select>
+            <select id="timeFilter">
+                <option value="">全部时间</option>
+                <option value="today">当天更新</option>
+                <option value="7days">最近7天</option>
+                <option value="30days">最近30天</option>
+            </select>
+        </div>
+
+        <div class="report-list" id="reportList"></div>
+        <div class="load-more" id="loadMore">加载更多...</div>
+        <div class="loading" id="loading">正在加载数据...</div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/sql.js/1.6.2/sql-wasm.js"></script>
+    <script>
+        let db = null;
+        let currentPage = 1;
+        const pageSize = 10;
+        let isLoading = false;
+        let hasMore = true;
+        let searchTimer = null;
+
+        // 初始化数据库
+        async function initDatabase() {
+            try {
+                const SQL = await initSqlJs({
+                    locateFile: file => `https://cdn.bootcdn.net/ajax/libs/sql.js/1.6.2/${file}`
+                });
+
+                // 替换为你的数据库URL
+                const response = await fetch('https://github.com/manymore13/report/raw/refs/heads/main/report.db');
+                const buffer = await response.arrayBuffer();
+                db = new SQL.Database(new Uint8Array(buffer));
+                
+                initIndustryFilter();
+                loadReports(true);
+            } catch (err) {
+                console.error('初始化失败:', err);
+                showError('数据加载失败，请刷新重试');
+            }
+        }
+
+        // 初始化行业筛选
+        function initIndustryFilter() {
+            const results = db.exec("SELECT DISTINCT industry_name FROM eastmoney");
+            const industries = results[0]?.values.flat() || [];
+            const select = document.getElementById('industrySelect');
+            
+            industries.forEach(industry => {
+                const option = document.createElement('option');
+                option.value = industry;
+                option.textContent = industry;
+                select.appendChild(option);
+            });
+        }
+
+        // 加载研究报告
+        async function loadReports(init = false) {
+            if(isLoading) return;
+            isLoading = true;
+            
+            try {
+                if(init) {
+                    currentPage = 1;
+                    hasMore = true;
+                    document.getElementById('reportList').innerHTML = '';
+                    toggleLoading(true);
+                }
+
+                const searchTerms = document.getElementById('searchInput').value.trim().split(/\s+/);
+                const industry = document.getElementById('industrySelect').value;
+                const timeRange = document.getElementById('timeFilter').value;
+
+                let query = `SELECT * FROM eastmoney WHERE 1=1 `;
+                const params = [];
+
+                // 关键词搜索
+                searchTerms.forEach(term => {
+                    query += ` AND title LIKE ? `;
+                    params.push(`%${term}%`);
+                });
+
+                // 行业筛选
+                if(industry) {
+                    query += ` AND industry_name = ? `;
+                    params.push(industry);
+                }
+
+                // 时间筛选
+                const now = new Date().toISOString().split('T')[0];
+                switch(timeRange) {
+                    case 'today':
+                        query += ` AND publish_date = ? `;
+                        params.push(now);
+                        break;
+                    case '7days':
+                        query += ` AND publish_date >= date('now', '-7 days') `;
+                        break;
+                    case '30days':
+                        query += ` AND publish_date >= date('now', '-30 days') `;
+                        break;
+                }
+
+                // 排序
+                query += ' ORDER BY publish_date DESC '
+
+                // params.push("")
+
+                // 分页
+                query += ` LIMIT ? OFFSET ? `;
+                params.push(pageSize, (currentPage - 1) * pageSize);
+
+                
+
+                console.log("sql = "+query)
+
+                const stmt = db.prepare(query);
+
+                stmt.bind(params);
+                
+                const reportList = document.getElementById('reportList');
+                let count = 0;
+
+                while (stmt.step()) {
+                    count++;
+                    const report = stmt.getAsObject();
+                    const card = createReportCard(report);
+                    reportList.appendChild(card);
+                }
+                
+                stmt.free();
+                hasMore = count >= pageSize;
+                currentPage++;
+
+                updateLoadMore();
+                if(init) toggleLoading(false);
+            } catch (err) {
+                console.error('查询失败:', err);
+                showError('数据加载失败');
+            }
+            isLoading = false;
+        }
+
+        // 创建报告卡片
+        function createReportCard(report) {
+            const card = document.createElement('div');
+            card.className = 'report-card';
+            card.innerHTML = `
+                <h3>${report.title}</h3>
+                <p>行业：${report.industry_name}</p>
+                <p>发布日期：${report.publish_date}</p>
+                <div class="date-tag">${getDateTag(report.publish_date)}</div>
+            `;
+            card.onclick = () => window.open(report.pdf_url, '_blank');
+            return card;
+        }
+
+        // 获取日期标签
+        function getDateTag(dateStr) {
+            const today = new Date().toISOString().split('T')[0];
+            const reportDate = new Date(dateStr);
+            const diffDay = Math.floor((new Date() - reportDate) / (1000 * 3600 * 24));
+            
+            if(dateStr === today) return '今日更新';
+            if(diffDay <= 7) return '一周内';
+            if(diffDay <= 30) return '一月内';
+            return '';
+        }
+
+        // 显示加载状态
+        function toggleLoading(show) {
+            document.getElementById('loading').style.display = show ? 'block' : 'none';
+        }
+
+        // 更新加载更多按钮
+        function updateLoadMore() {
+            const loader = document.getElementById('loadMore');
+            loader.style.display = hasMore ? 'block' : 'none';
+            loader.textContent = hasMore ? '加载更多...' : '没有更多数据了';
+        }
+
+        // 错误处理
+        function showError(msg) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = msg;
+            document.getElementById('reportList').appendChild(errorDiv);
+        }
+
+        // 事件监听
+        window.addEventListener('scroll', () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            if (scrollTop + clientHeight >= scrollHeight - 100 && hasMore && !isLoading) {
+                loadReports();
+            }
+        });
+
+        document.getElementById('searchInput').addEventListener('input', () => {
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => loadReports(true), 500);
+        });
+
+        document.getElementById('industrySelect').addEventListener('change', () => loadReports(true));
+        document.getElementById('timeFilter').addEventListener('change', () => loadReports(true));
+        document.getElementById('loadMore').addEventListener('click', () => loadReports());
+
+        // 初始化
+        initDatabase();
+    </script>
+</body>
+</html>
