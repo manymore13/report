@@ -33,10 +33,14 @@
 | [铁路公路](https://github.com/manymore13/report/blob/main/eastmoney/铁路公路.csv)   | [银行](https://github.com/manymore13/report/blob/main/eastmoney/银行.csv)       | [非金属材料](https://github.com/manymore13/report/blob/main/eastmoney/非金属材料.csv) | [风电设备](https://github.com/manymore13/report/blob/main/eastmoney/风电设备.csv)   | [食品饮料](https://github.com/manymore13/report/blob/main/eastmoney/食品饮料.csv)   |
 
 
-**3. 小破站**
+**3. [小破站](https://manymore13.github.io/report/)**
+1. 支持多关键词搜索研报
+2. 支持按行业搜索研报
+3. 支持按时间搜索研报
+4. 修复研报链接无法打开的问题
 
 [查看](https://manymore13.github.io/report/)
-   
+
 ![img](./preview.png)
 
 
