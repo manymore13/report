@@ -39,7 +39,7 @@
 3. 支持按时间搜索研报
 4. 修复研报链接无法打开的问题
 
-[查看](https://manymore13.github.io/report/)
+![img](./xpz_qr.png)
 
 ![img](./preview.png)
 
