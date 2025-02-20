@@ -273,15 +273,17 @@
             const card = document.createElement('div');
             card.className = 'report-card';
             card.innerHTML = `
+                <a href="${report.pdf_url}" target="_blank" rel="noreferrer">
                 <h3>${report.title}</h3>
                 <p>行业：${report.industry_name}</p>
                 <p>发布日期：${report.publish_date}</p>
                 <div class="date-tag">${getDateTag(report.publish_date)}</div>
+                </a>
             `;
-            card.onclick = () => {
-                const newWindow = window.open(report.pdf_url, '_blank');
-                newWindow.location.href = report.pdf_url;
-            }
+            // card.onclick = () => {
+            //     const newWindow = window.open(report.pdf_url, '_blank');
+            //     newWindow.location.href = report.pdf_url
+            // }
             return card;
         }
 
