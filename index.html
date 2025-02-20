@@ -278,7 +278,10 @@
                 <p>发布日期：${report.publish_date}</p>
                 <div class="date-tag">${getDateTag(report.publish_date)}</div>
             `;
-            card.onclick = () => window.open(report.pdf_url, '_blank');
+            card.onclick = () => {
+                const newWindow = window.open(report.pdf_url, '_blank');
+                newWindow.location.href = report.pdf_url;
+            }
             return card;
         }
 
