@@ -1,9 +1,9 @@
-# 研报
+# 研究报告
 
-## 研究报告
 >每天定时12点更新，数据从2024-01-01开始拉取，每天累计更新
 
-### 浏览器上查看研报
+
+## 浏览器上查看研报
 
 浏览器上查看研报，有三种方式
 
@@ -33,12 +33,16 @@
 | [铁路公路](https://github.com/manymore13/report/blob/main/eastmoney/铁路公路.csv)   | [银行](https://github.com/manymore13/report/blob/main/eastmoney/银行.csv)       | [非金属材料](https://github.com/manymore13/report/blob/main/eastmoney/非金属材料.csv) | [风电设备](https://github.com/manymore13/report/blob/main/eastmoney/风电设备.csv)   | [食品饮料](https://github.com/manymore13/report/blob/main/eastmoney/食品饮料.csv)   |
 
 
+
 **3. [小破站](https://manymore13.github.io/report/)**
 - 支持多关键词搜索研报
 - 支持按行业搜索研报
 - 支持按时间搜索研报
 
 ![img](./preview.png)
+
+## [命令行版本](https://github.com/manymore13/eastmoney)
+可以直接下载研报PDF文件，可以配合Claude code等Ai工具一起使用
 
 ## 投资学习必备工具
 不定期分享精选研报，常用指数估值
