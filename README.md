@@ -44,10 +44,6 @@
 ## [命令行版本](https://github.com/manymore13/eastmoney)
 可以直接下载研报PDF文件，可以配合Claude code等Ai工具一起使用
 
-## 投资学习必备工具
-不定期分享精选研报，常用指数估值
-
-![img](./gzh.jpg)
 
 
 
