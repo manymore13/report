@@ -43,9 +43,32 @@
 
 ![预览](./preview.png)
 
-## 命令行工具
+## agent工具
 
-[report cli](https://github.com/manymore13/eastmoney) — 直接下载研报 PDF，可配合 Claude Code 等 AI 工具使用。
+[report cli](https://github.com/manymore13/eastmoney) — 查询、分析和下载券商研报的命令行工具。支持行业研报、个股研报、策略报告、宏观研究、券商晨报。
+
+在 AI Agent（Cursor、Claude Code、Cline、Codex 等）对话框中发送：
+
+```
+请帮我安装 skill: https://raw.githubusercontent.com/manymore13/report-cli/refs/heads/master/.claude/skills/report-cli/SKILL.md
+```
+
+安装后直接用自然语言交互：
+
+- "帮我查一下游戏行业最近有什么研报"
+- "半导体行业最近 5 篇，只看 10 页以上的"
+- "贵州茅台最新研报说了什么？"
+- "宁德时代最近有什么研报，只看买入评级的"
+- "今天的券商晨报说了什么"
+- "宏观研究最近有什么新观点"
+- "最近有没有看好新能源车的策略报告"
+- "光伏和风电行业对比一下"
+- "有哪些行业可以查"
+- "把这三篇下载到 ./reports 目录"
+
+Agent 会自动区分：你说"查/看/了解"就走查询，说"下载"才下载。
+
+---
 
 ## 公众号
 
